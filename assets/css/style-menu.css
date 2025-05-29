@@ -561,3 +561,8 @@ footer p
     text-decoration: none;
     opacity: 0.8;
 }
+imgElement.css({
+    width: '3cm',
+    height: '3cm',
+    objectFit: 'cover'
+});
