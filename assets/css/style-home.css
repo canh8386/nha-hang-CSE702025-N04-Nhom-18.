@@ -230,8 +230,6 @@ section {
 .modal-search .search-btn {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
-  height: 20px;
-  width: 20px;
 }
 
 .modal-search .search-btn i {
