@@ -19,9 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!--Header-->
     <header id="header">
-        <!--Navbar-->
         <nav id="nav" class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container">
                 <a href="index.html" class="logo">
@@ -56,76 +54,70 @@
             </div>
         </nav>
 
-        <!-- Modal -->
         <div class="modal-search">
             <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                 <div class="modal-dialog" role="document" >
                     <div class="modal-content modal-sch-main">
                         <div class="modal-body">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control search-box" placeholder="Bạn cần tìm kiếm những gì?" aria-label="Bạn cần tìm kiếm những gì?" aria-describedby="basic-addon2">
+                                <input type="text" class="form-control search-box" placeholder="Bạn cần tìm kiếm những gì?" aria-label="Bạn cần tìm kiếm những gì?" aria-describedby="basic-addon2" id="food-search-input">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary search-btn" type="button" title="Tìm kiếm">
                                         <i class="fas fa-search"></i>
                                     </button>
                                 </div>
                               </div>
+                            <div id="search-suggestions" class="list-group" style="display: none;">
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!--Back to home-->
         <button onclick="topFunction()" id="myBtn" title="Lên đầu trang"><i class="fas fa-arrow-up"></i></button>
     </header>
 
-    <!--Main-->
     <main>
-        <!-- Modal -->
         <div class="modal fade" id="food-content" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modal-title">Thông tin món ăn</h5>
-      </div>
-      <div class="modal-body modal-food">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="modal-thumbnail">
-                <img src="" alt="" id="modal-img" />
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="modal-food-info">
-                <h4 id="modal-name"></h4>
-                <div class="f-info">
-                  <span class="head-info">Thành phần: </span>
-                  <span class="content-info" id="modal-ingredient"></span>
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Thông tin món ăn</h5>
+                        </div>
+                    <div class="modal-body modal-food">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="modal-thumbnail">
+                                        <img src="" alt="Hình ảnh món ăn" id="modal-main-img">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="modal-food-info">
+                                        <h4 id="modal-food-name"></h4>
+                                        <div class="f-info">
+                                            <span class="head-info">Thành phần: </span>
+                                            <span class="content-info" id="modal-ingredients">Mô tả thành phần sẽ ở đây.</span>
+                                        </div>
+                                        <p class="item-description" id="modal-description">Mô tả chi tiết món ăn sẽ ở đây.</p>
+                                        <p class="item-price" id="modal-price-display">Giá: 0đ</p>
+                                        <div class="img-food">
+                                            <h5>Một số hình ảnh</h5>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="table.html"><button class="modal-btn">Đặt bàn ngay</button></a>
+                        <button class="modal-btn btn-close" type="button" data-dismiss="modal">Đóng</button>
+                    </div>
                 </div>
-                <p>Được chế biến với nguyên liệu tốt nhất.</p>
-                <p class="item-price" id="modal-price"></p>
-                <div class="img-food">
-                  <a href="#" id="modal-img-link-1"><img src="" alt="" /></a>
-                  <a href="#" id="modal-img-link-2"><img src="" alt="" /></a>
-                  <a href="#" id="modal-img-link-3"><img src="" alt="" /></a>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <a href="table.html"><button class="modal-btn">Đặt bàn ngay</button></a>
-        <button class="modal-btn btn-close" type="button" data-dismiss="modal">Đóng</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-
-        <!--Banner-->
         <div class="page-banner">
             <div class="container">
                 <h1>Thực đơn</h1>
@@ -145,8 +137,7 @@
         </div>
 
         <div id="menu">
-            <!--Menu-->
-            <div class="menu-list">
+            <div class="menu-list" id="pizza-menu-section">
                 <div class="container">
                     <div class="menu-title menu-pizza">
                         <h2>Pizza</h2>
@@ -155,184 +146,78 @@
                         <div class="col-md-6">
                             <div class="menu-box">
                                 <ul>
-                                    <li data-name="Pizza thịt xông khói"
-    data-price="110.000đ"
-    data-ingredient="Thịt xông khói, phô mai mozzarella, sốt cà chua, bột bánh pizza."
-    data-image="./assets/img/Menu/thitxongkhoito.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/thitxongkhoito.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Pizza thịt xông khói</a></span>
-            <span class="item-price">110.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
-                                    <li data-name="Pizza thịt bò"
-    data-price="140.000đ"
-    data-ingredient="Thịt bò băm, hành tây, phô mai, sốt cà chua."
-    data-image="./assets/img/Menu/thitboto.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/thitboto.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Pizza thịt bò</a></span>
-            <span class="item-price">140.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
-                                        <li data-name="Pizza hải sản"
-    data-price="120.000đ"
-    data-ingredient="Tôm, mực, thanh cua, hành tây, phô mai, sốt cà chua."
-    data-image="./assets/img/Menu/haisanto.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/haisanto.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Pizza hải sản</a></span>
-            <span class="item-price">120.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
+                                    <li id="pizza-thit-xong-khoi"> <div class="img-menu">
+                                            <img src="./assets/img/Menu/th1.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="pizza-thit-xong-khoi">Pizza thịt xông khói</a></span>
+                                                <span class="item-price">110.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
+                                    <li id="pizza-thit-bo">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th2.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="pizza-thit-bo">Pizza thịt bò</a></span>
+                                                <span class="item-price">140.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
+                                    <li id="pizza-hai-san">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th3.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="pizza-hai-san">Pizza hải sản</a></span>
+                                                <span class="item-price">120.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="menu-box">
                                 <ul>
-                                    <li data-name="Calzone"
-    data-price="130.000đ"
-    data-ingredient="Thịt (dăm bông, salami, pepperoni, xúc xích), hành tây, nấm, phô mai, sốt marinara."
-    data-image="./assets/img/Menu/calzoneto.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/calzoneto.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Pizza Calzone</a></span>
-            <span class="item-price">130.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
-                                    <li data-name="Pizza xúc xích"
-    data-price="98.000đ"
-    data-ingredient="Hành tây, phô mai, xúc xích, sốt cà chua."
-    data-image="./assets/img/Menu/xucxichto.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/xucxichto.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Pizza xúc xích</a></span>
-            <span class="item-price">98.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
+                                    <li id="calzone">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th4.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="calzone">Calzone</a></span>
+                                                <span class="item-price">130.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
+                                    <li id="pizza-xuc-xich">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th5.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="pizza-xuc-xich">Pizza xúc xích</a></span>
+                                                <span class="item-price">98.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="menu-list">
-                <div class="container">
-                    <div class="menu-title menu-bergers">
-                        <h2>Bánh mì kẹp</h2>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="menu-box">
-                                <ul>
-                                    <li data-name="Bánh mì kẹp thịt hai tầng"
-    data-price="110.000đ"
-    data-ingredient="Thịt nướng, thịt xông khói, phô mai, xà lách, cà chua, dưa leo, mayonnaise, tương cà, tương ớt."
-    data-image="./assets/img/Menu/bmi2tangto.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/bmi2tangto.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Bánh mì kẹp thịt hai tầng</a></span>
-            <span class="item-price">110.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
-                                    <li data-name="Bánh mì kẹp cổ điển"
-    data-price="140.000đ"
-    data-ingredient="Thịt nướng, xà lách, cà chua, dưa leo, mayonnaise, tương cà, tương ớt."
-    data-image="./assets/img/Menu/codiento.JPG"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/codiento.JPG" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Bánh mì kẹp cổ điển</a></span>
-            <span class="item-price">140.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="menu-box">
-                                <ul>
-                                    <li data-name="Bánh mì kẹp thịt"
-    data-price="120.000đ"
-    data-ingredient="Thịt nướng, phô mai, xà lách, cà chua, dưa leo, mayonnaise, tương cà, tương ớt."
-    data-image="./assets/img/Menu/kepthitto.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/kepthitto.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Bánh mì kẹp thịt</a></span>
-            <span class="item-price">120.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
-                                    <li data-name="Bánh mì kẹp đặc biệt"
-    data-price="130.000đ"
-    data-ingredient="Thịt nướng, phô mai, xà lách, cà chua, dưa leo, mayonnaise, tương cà, tương ớt (x2)."
-    data-image="./assets/img/Menu/dacbietto.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/dacbietto.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Bánh mì kẹp đặc biệt</a></span>
-            <span class="item-price">130.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="menu-list">
+            <div class="menu-list" id="mi-y-menu-section">
                 <div class="container">
                     <div class="menu-title menu-pasta">
                         <h2>Mì Ý</h2>
@@ -341,83 +226,136 @@
                         <div class="col-md-6">
                             <div class="menu-box">
                                 <ul>
-                                    <li data-name="Mì Amatriciana"
-    data-price="110.000đ"
-    data-ingredient="Guanciale, cà chua, phô mai Pecorino Romano, ớt khô, dầu oliu, muối, tiêu."
-    data-image="./assets/img/Menu/amatricianato.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/amatricianato.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Mì Amatriciana</a></span>
-            <span class="item-price">110.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
-                                    <li data-name="Mì Carbonara"
-    data-price="140.000đ"
-    data-ingredient="Trứng, phô mai, thịt xông khói, tiêu."
-    data-image="./assets/img/Menu/carbonarato.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/carbonarato.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Mì Carbonara</a></span>
-            <span class="item-price">140.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
+                                    <li id="mi-amatriciana">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th6.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="mi-amatriciana">Mì Amatriciana</a></span>
+                                                <span class="item-price">110.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
+                                    <li id="mi-carbonara">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th7.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="mi-carbonara">Mì Carbonara</a></span>
+                                                <span class="item-price">140.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="menu-box">
                                 <ul>
-                                    <li data-name="Mì Lasagna"
-    data-price="120.000đ"
-    data-ingredient="Sốt Bolognese, sốt Béchamel, phô mai."
-    data-image="./assets/img/Menu/lasagnato.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/lasagnato.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Mì Lasagna</a></span>
-            <span class="item-price">120.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
-                                    <li data-name="Mì Spaghetti"
-    data-price="100.000đ"
-    data-ingredient="Thịt bằm, phô mai, dầu ôliu, sốt cà chua."
-    data-image="./assets/img/Menu/spaghettito.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/spaghettito.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Mì Spaghetti</a></span>
-            <span class="item-price">100.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
+                                    <li id="mi-lasagna">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th8.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="mi-lasagna">Mì Lasagna</a></span>
+                                                <span class="item-price">120.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
+                                    <li id="mi-spaghetti">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th8.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="mi-spaghetti">Mì Spaghetti</a></span>
+                                                <span class="item-price">100.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="menu-list">
+            <div class="menu-list" id="banh-mi-kep-menu-section">
+                <div class="container">
+                    <div class="menu-title menu-bergers">
+                        <h2>Bánh mì kẹp</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="menu-box">
+                                <ul>
+                                    <li id="banh-mi-kep-thit-hai-tang">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th9.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="banh-mi-kep-thit-hai-tang">Bánh mì kẹp thịt hai tầng</a></span>
+                                                <span class="item-price">110.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
+                                    <li id="banh-mi-kep-co-dien">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th10.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="banh-mi-kep-co-dien">Bánh mì kẹp cổ điển</a></span>
+                                                <span class="item-price">140.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-box">
+                                <ul>
+                                    <li id="banh-mi-kep-thit">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th11.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="banh-mi-kep-thit">Bánh mì kẹp thịt</a></span>
+                                                <span class="item-price">120.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
+                                    <li id="banh-mi-kep-dac-biet">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th12.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="banh-mi-kep-dac-biet">Bánh mì kẹp đặc biệt</a></span>
+                                                <span class="item-price">130.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-list" id="mon-trang-mieng-menu-section">
                 <div class="container">
                     <div class="menu-title menu-deserts">
                         <h2>Món tráng miệng</h2>
@@ -426,76 +364,60 @@
                         <div class="col-md-6">
                             <div class="menu-box">
                                 <ul>
-                                    <li data-name="Bánh"
-    data-price="110.000đ"
-    data-ingredient="socola, vani, dâu, xoài."
-    data-image="./assets/img/Menu/banh.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/banh.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Bánh</a></span>
-            <span class="item-price">110.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
-                                    <li data-name="Trà"
-    data-price="140.000đ"
-    data-ingredient="chanh gừng, chanh mật ong, mật ong gừng, dâu, vải."
-    data-image="./assets/img/Menu/tra.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/tra.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Trà</a></span>
-            <span class="item-price">140.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
+                                    <li id="banh">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th13.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="banh">Bánh</a></span>
+                                                <span class="item-price">110.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
+                                    <li id="tra">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th14.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="tra">Trà</a></span>
+                                                <span class="item-price">140.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="menu-box">
                                 <ul>
-                                    <li data-name="Kem"
-    data-price="120.000đ"
-    data-ingredient="socola, vani, dâu, xoài."
-    data-image="./assets/img/Menu/kem.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/kem.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Kem</a></span>
-            <span class="item-price">120.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
-                                    <li data-name="Bánh kem"
-    data-price="130.000đ"
-    data-ingredient="socola, vani, dâu, xoài."
-    data-image="./assets/img/Menu/banhkem.jpg"
-    >
-    <div class="img-menu">
-        <img src="./assets/img/Menu/banhkem.jpg" alt="">
-    </div>
-    <div class="menu-content">
-        <h4>
-            <span class="item-title"><a href="#" data-toggle="modal" data-target="#food-content">Bánh kem</a></span>
-            <span class="item-price">130.000đ</span>
-        </h4>
-        <p>Được chế biến với nguyên liệu tốt nhất</p>
-    </div>
-</li>
+                                    <li id="kem">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th15.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="kem">Kem</a></span>
+                                                <span class="item-price">120.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
+                                    <li id="banh-kem">
+                                        <div class="img-menu">
+                                            <img src="./assets/img/Menu/th16.jpg" alt="">
+                                        </div>
+                                        <div class="menu-content">
+                                            <h4>
+                                                <span class="item-title"><a href="#" class="open-food-modal" data-food-id="banh-kem">Bánh kem</a></span>
+                                                <span class="item-price">130.000đ</span>
+                                            </h4>
+                                            <p>Được chế biến với nguyên liệu tốt nhất</p>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -504,7 +426,6 @@
             </div>
         </div>
         
-        <!--Reservation-->
         <div class="reservation-banner">
             <div class="container">
                 <div class="reservation-content">
@@ -516,7 +437,6 @@
         </div>
     </main>
 
-    <!--Footer-->
     <footer>
         <div class="container">
             <div id="up-footer">
@@ -559,18 +479,17 @@
                 </div>
             </div>
             <div id="down-footer">
-                <p>Copyright &copy; 2025 <a href="" data-toggle="modal" data-target="#modelId2">Nhóm 18.</a></p>
+                <p>Copyright © 2025 <a href="" data-toggle="modal" data-target="#modelId2">Nhóm 18.</a></p>
             </div>
         </div>
 
-        <!-- Modal -->
         <div class="modal fade" id="modelId2" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                         <div class="modal-header">
                                 <h5 class="modal-title">Thành viên</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
+                                        <span aria-hidden="true">×</span>
                                     </button>
                             </div>
                     <div class="modal-body">
@@ -587,5 +506,191 @@
         </div>
     </footer>
     <script src="./assets/js/script.js"></script>
-</body>
+
+    <script>
+        // Mảng mẫu chứa dữ liệu món ăn.
+        // Bạn CẦN đảm bảo DỮ LIỆU này khớp với các món ăn trong menu.html và có các trường ID, name, description, imageUrl, price.
+        // ID phải khớp với ID của thẻ <li> trong menu.html
+        const allFoodItems = [
+            { id: 'pizza-thit-xong-khoi', name: "Pizza thịt xông khói", category: "Pizza", price: "110.000đ", description: "Thịt xông khói, phô mai mozzarella, sốt cà chua, bột bánh pizza.", imageUrl: "./assets/img/Menu/th1.jpg" },
+            { id: 'pizza-thit-bo', name: "Pizza thịt bò", category: "Pizza", price: "140.000đ", description: "Thịt bò băm, hành tây, phô mai, sốt cà chua.", imageUrl: "./assets/img/Menu/th2.jpg" },
+            { id: 'pizza-hai-san', name: "Pizza hải sản", category: "Pizza", price: "120.000đ", description: "Tôm, mực, thanh cua, hành tây, phô mai, sốt cà chua.", imageUrl: "./assets/img/Menu/th3.jpg" },
+            { id: 'calzone', name: "Calzone", category: "Pizza", price: "130.000đ", description: "Thịt (dăm bông, salami, pepperoni, xúc xích), hành tây, nấm, phô mai, sốt marinara.", imageUrl: "./assets/img/Menu/th4.jpg" },
+            { id: 'pizza-xuc-xich', name: "Pizza xúc xích", category: "Pizza", price: "98.000đ", description: "Hành tây, phô mai, xúc xích, sốt cà chua.", imageUrl: "./assets/img/Menu/th5.jpg" },
+            { id: 'banh-mi-kep-thit-hai-tang', name: "Bánh mì kẹp thịt hai tầng", category: "Bánh mì kẹp", price: "110.000đ", description: "Thịt nướng, thịt xông khói, phô mai, xà lách, cà chua, dưa leo, mayonnaise, tương cà, tương ớt.", imageUrl: "./assets/img/Menu/th9.jpg" },
+            { id: 'banh-mi-kep-co-dien', name: "Bánh mì kẹp cổ điển", category: "Bánh mì kẹp", price: "140.000đ", description: "Thịt nướng, xà lách, cà chua, dưa leo, mayonnaise, tương cà, tương ớt.", imageUrl: "./assets/img/Menu/th10.jpg" },
+            { id: 'banh-mi-kep-thit', name: "Bánh mì kẹp thịt", category: "Bánh mì kẹp", price: "120.000đ", description: "Thịt nướng, phô mai, xà lách, cà chua, dưa leo, mayonnaise, tương cà, tương ớt.", imageUrl: "./assets/img/Menu/th11.jpg" },
+            { id: 'banh-mi-kep-dac-biet', name: "Bánh mì kẹp đặc biệt", category: "Bánh mì kẹp", price: "130.000đ", description: "Thịt nướng, phô mai, xà lách, cà chua, dưa leo, mayonnaise, tương cà, tương ớt (x2).", imageUrl: "./assets/img/Menu/th12.jpg" },
+            { id: 'mi-amatriciana', name: "Mì Amatriciana", category: "Mì Ý", price: "110.000đ", description: "Guanciale, cà chua, phô mai Pecorino Romano, ớt khô, dầu oliu, muối, tiêu.", imageUrl: "./assets/img/Menu/th6.jpg" },
+            { id: 'mi-carbonara', name: "Mì Carbonara", category: "Mì Ý", price: "140.000đ", description: "Trứng, phô mai, thịt xông khói, tiêu.", imageUrl: "./assets/img/Menu/th7.jpg" },
+            { id: 'mi-lasagna', name: "Mì Lasagna", category: "Mì Ý", price: "120.000đ", description: "Sốt Bolognese, sốt Béchamel, phô mai.", imageUrl: "./assets/img/Menu/th8.jpg" },
+            { id: 'mi-spaghetti', name: "Mì Spaghetti", category: "Mì Ý", price: "100.000đ", description: "Thịt bằm, phô mai, dầu ôliu, sốt cà chua.", imageUrl: "./assets/img/Menu/th8.jpg" },
+            { id: 'banh', name: "Bánh", category: "Món tráng miệng", price: "110.000đ", description: "socola, vani, dâu, xoài.", imageUrl: "./assets/img/Menu/th13.jpg" },
+            { id: 'tra', name: "Trà", category: "Món tráng miệng", price: "140.000đ", description: "chanh gừng, chanh mật ong, mật ong gừng, dâu, vải.", imageUrl: "./assets/img/Menu/th14.jpg" },
+            { id: 'kem', name: "Kem", category: "Món tráng miệng", price: "120.000đ", description: "socola, vani, dâu, xoài.", imageUrl: "./assets/img/Menu/th15.jpg" },
+            { id: 'banh-kem', name: "Bánh kem", category: "Món tráng miệng", price: "130.000đ", description: "socola, vani, dâu, xoài.", imageUrl: "./assets/img/Menu/th16.jpg" }
+        ];
+
+        // Lấy các phần tử DOM cho tìm kiếm trên trang menu
+        const searchInput = document.getElementById('food-search-input');
+        const suggestionsContainer = document.getElementById('search-suggestions');
+        const searchButton = document.querySelector('.search-btn'); // Nút tìm kiếm
+
+        // Hàm để hiển thị thông tin món ăn trong modal
+        function showFoodDetailsModal(foodItem) {
+            const modal = $('#food-content'); // ID của modal thông tin món ăn của bạn
+
+            modal.find('.modal-title').text('Thông tin món ăn: ' + foodItem.name);
+            modal.find('#modal-main-img').attr('src', foodItem.imageUrl).attr('alt', foodItem.name);
+            modal.find('#modal-food-name').text(foodItem.name);
+            modal.find('#modal-ingredients').text(foodItem.description); // Giả sử description là thành phần
+            modal.find('#modal-description').text(foodItem.description); // Cập nhật cả thẻ p có class item-description
+            modal.find('#modal-price-display').text('Giá: ' + foodItem.price);
+
+            // Xóa hình ảnh cũ và thêm hình ảnh mới vào phần "Một số hình ảnh"
+            const imgFoodContainer = modal.find('.img-food');
+            imgFoodContainer.find('a').remove(); // Xóa tất cả các link ảnh cũ
+
+            // Thêm lại ảnh chính (hoặc các ảnh khác nếu có)
+            const defaultImgLink = `<a href="${foodItem.imageUrl}"><img src="${foodItem.imageUrl}" alt="${foodItem.name}"></a>`;
+            imgFoodContainer.append(defaultImgLink);
+            // Nếu bạn có nhiều hình ảnh cho một món, bạn cần thêm logic để lấy và hiển thị chúng ở đây.
+            // Hiện tại, tôi chỉ dùng ảnh chính.
+
+            modal.modal('show'); // Hiển thị modal
+        }
+
+        // Hàm để cuộn đến món ăn và làm nổi bật (nếu có thể)
+        function scrollToFoodItem(foodId) {
+            const element = document.getElementById(foodId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Tùy chọn: Thêm class highlight tạm thời để làm nổi bật món ăn
+                element.classList.add('highlight-food-item');
+                setTimeout(() => {
+                    element.classList.remove('highlight-food-item');
+                }, 3000); // Xóa highlight sau 3 giây
+            }
+        }
+
+        // Xử lý sự kiện khi người dùng gõ vào ô tìm kiếm (trên menu.html)
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            suggestionsContainer.innerHTML = ''; // Xóa các gợi ý cũ
+
+            if (searchTerm.length === 0) {
+                suggestionsContainer.style.display = 'none'; // Ẩn nếu không có từ khóa
+                return;
+            }
+
+            const filteredItems = allFoodItems.filter(item =>
+                item.name.toLowerCase().includes(searchTerm)
+            );
+
+            if (filteredItems.length > 0) {
+                filteredItems.forEach(item => {
+                    const suggestionItem = document.createElement('a');
+                    suggestionItem.href = '#'; // Xử lý bằng JS
+                    suggestionItem.classList.add('list-group-item', 'list-group-item-action');
+                    suggestionItem.textContent = item.name;
+                    suggestionItem.dataset.foodId = item.id; // Lưu ID món ăn
+
+                    suggestionItem.addEventListener('click', function(event) {
+                        event.preventDefault(); // Ngăn chặn link nhảy trang
+                        searchInput.value = item.name; // Đặt tên món ăn vào ô tìm kiếm
+                        suggestionsContainer.style.display = 'none'; // Ẩn gợi ý
+
+                        // Đóng modal tìm kiếm
+                        $('#modelId').modal('hide');
+
+                        // Cuộn đến phần món ăn trên trang
+                        scrollToFoodItem(item.id);
+
+                        // Mở modal thông tin món ăn
+                        showFoodDetailsModal(item);
+                    });
+                    suggestionsContainer.appendChild(suggestionItem);
+                });
+                suggestionsContainer.style.display = 'block'; // Hiển thị danh sách gợi ý
+            } else {
+                suggestionsContainer.style.display = 'none'; // Ẩn nếu không có kết quả
+            }
+        });
+
+        // Ẩn gợi ý khi người dùng click ra ngoài ô tìm kiếm và danh sách gợi ý
+        document.addEventListener('click', function(event) {
+            if (!searchInput.contains(event.target) && !suggestionsContainer.contains(event.target)) {
+                suggestionsContainer.style.display = 'none';
+            }
+        });
+
+        // Xử lý khi nhấn nút tìm kiếm chính (trên menu.html)
+        searchButton.addEventListener('click', function() {
+            const finalSearchTerm = searchInput.value.trim().toLowerCase();
+            suggestionsContainer.style.display = 'none'; // Ẩn gợi ý
+            $('#modelId').modal('hide'); // Đóng modal tìm kiếm
+
+            if (finalSearchTerm) {
+                const foundItem = allFoodItems.find(item => item.name.toLowerCase() === finalSearchTerm);
+                if (foundItem) {
+                    scrollToFoodItem(foundItem.id);
+                    showFoodDetailsModal(foundItem);
+                } else {
+                    alert(`Không tìm thấy món ăn nào khớp với "${finalSearchTerm}".`);
+                }
+            } else {
+                alert('Vui lòng nhập từ khóa tìm kiếm.');
+            }
+        });
+
+        // Tự động focus vào ô tìm kiếm khi modal được mở (trên menu.html)
+        $('#modelId').on('shown.bs.modal', function () {
+            searchInput.focus();
+        });
+
+        // Xử lý khi trang menu.html được tải với tham số URL (từ index.html hoặc tìm kiếm trực tiếp trên menu)
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const foodId = urlParams.get('foodId');
+            const searchTermFromIndex = urlParams.get('query'); // Lấy từ khóa từ trang chủ nếu người dùng nhấn nút tìm kiếm chung
+
+            if (foodId) {
+                const foundItem = allFoodItems.find(item => item.id === foodId);
+                if (foundItem) {
+                    scrollToFoodItem(foodId);
+                    // Sử dụng setTimeout để đảm bảo modal hiển thị sau khi trang đã cuộn xong
+                    setTimeout(() => {
+                        showFoodDetailsModal(foundItem);
+                    }, 500); // Có thể điều chỉnh thời gian delay nếu cần
+                }
+            } else if (searchTermFromIndex) {
+                // Nếu có từ khóa tìm kiếm chung từ trang chủ (khi nhấn nút tìm kiếm thay vì chọn gợi ý)
+                searchInput.value = decodeURIComponent(searchTermFromIndex); // Điền từ khóa vào ô tìm kiếm
+                const foundItem = allFoodItems.find(item => item.name.toLowerCase().includes(searchTermFromIndex.toLowerCase())); // Tìm món ăn có chứa từ khóa
+                if (foundItem) {
+                    scrollToFoodItem(foundItem.id);
+                    setTimeout(() => {
+                        showFoodDetailsModal(foundItem);
+                    }, 500);
+                } else {
+                    // Nếu không tìm thấy món ăn chính xác, có thể hiển thị thông báo hoặc gợi ý
+                    alert(`Không tìm thấy món ăn nào khớp với "${decodeURIComponent(searchTermFromIndex)}" trên menu.`);
+                    searchInput.dispatchEvent(new Event('input')); // Kích hoạt sự kiện input để hiển thị gợi ý
+                }
+            }
+
+            // Xử lý click vào các link "open-food-modal" trên trang menu.html
+            document.querySelectorAll('.open-food-modal').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // Ngăn chặn hành vi mặc định của link
+                    const foodIdToOpen = this.dataset.foodId;
+                    const foundItem = allFoodItems.find(item => item.id === foodIdToOpen);
+                    if (foundItem) {
+                        showFoodDetailsModal(foundItem);
+                    }
+                });
+            });
+        });
+    </script>
+    </body>
 </html>
