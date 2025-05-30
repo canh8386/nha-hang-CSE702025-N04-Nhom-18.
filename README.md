@@ -6,15 +6,15 @@ Trang web quản lí nhà hàng và là bài tập lớn để đánh giá quá 
 
 Trang web sử dụng Bootstrap, Slick và một số công cụ khác để xây dựng.
 
-Trang web:http://localhost:3000
+Trang web:https://nha-hang.github.io/nha-hang-CSE702025-N04-Nhom-18./
 
 Các mục lớn của trang web:
 
-  1. [Trang chủ](https://nha-hang.github.io/CSE702025-N04-Nhom-18./)
-  2. [Thực đơn](https://nha-hang.github.io/CSE702025-N04-Nhom-18./menu.html)
-  3. [Đặt bàn](https://nha-hang.github.io/CSE702025-N04-Nhom-18./table.html)
-  4. [Giới thiệu](https://nha-hang.github.io/CSE702025-N04-Nhom-18./about.html)
-  5. [Liên hệ](https://nha-hang.github.io/CSE702025-N04-Nhom-18./contact.html)
+  1. [Trang chủ](https://nha-hang.github.io/nha-hang-CSE702025-N04-Nhom-18./)
+  2. [Thực đơn](https://nha-hang.github.io/nha-hang-CSE702025-N04-Nhom-18./menu.html)
+  3. [Đặt bàn](https://nha-hang.github.io/nha-hang-CSE702025-N04-Nhom-18./table.html)
+  4. [Giới thiệu](https://nha-hang.github.io/nha-hang-CSE702025-N04-Nhom-18./about.html)
+  5. [Liên hệ](https://nha-hang.github.io/nha-hang-CSE702025-N04-Nhom-18./contact.html)
 
 ## Một số hình ảnh
   * Trang chủ
