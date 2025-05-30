@@ -167,23 +167,25 @@ section {
     opacity: 0.8;
 }
 
-/* QUY TẮC CSS CHO MODAL TÌM KIẾM (ĐÃ TỐI ƯU HÓA) */
+/* QUY TẮC CSS CHO MODAL TÌM KIẾM (ĐÃ CHỈNH SỬA VÀ TỐI ƯU HƠN) */
 
-/* Quan trọng: Mặc định Bootstrap đã có .modal-backdrop để làm nền tối.
-   Nếu bạn đã thêm display: none !important cho nó trước đó, hãy xóa dòng đó đi
-   để lớp nền tối hiển thị như bạn muốn. */
+/* Ẩn lớp phủ nền mặc định của Bootstrap (Đảm bảo nó không bị ẩn bởi CSS của bạn) */
+/* Nếu bạn đã thêm display: none !important cho .modal-backdrop ở đâu đó, hãy XÓA nó đi */
+/* .modal-backdrop { display: block; opacity: 0.5; } */ /* Đây là giá trị mặc định của Bootstrap, không cần thêm vào trừ khi bị ghi đè */
 
 /* Điều chỉnh vị trí và hiển thị của modal tổng thể */
 #modelId.modal {
-    position: fixed; /* Giữ cố định trên màn hình */
-    top: calc(var(--header-height) + 20px); /* Bắt đầu thấp hơn 20px để tạo hiệu ứng trượt lên */
-    left: 50%; /* Đặt modal ở giữa theo chiều ngang */
-    transform: translateX(-50%); /* Dịch sang trái 50% chiều rộng của modal để căn giữa hoàn hảo */
-    width: 100%; /* Đảm bảo modal chiếm toàn bộ chiều rộng viewport để modal-dialog có thể căn giữa */
-    opacity: 0; /* Ẩn ban đầu */
-    visibility: hidden; /* Ẩn ban đầu */
+    position: fixed;
+    /* Dùng 'calc' để đặt modal ngay dưới header và sát vào một chút */
+    top: var(--header-height); /* Bắt đầu ngay dưới header, sau đó có thể trượt lên nếu muốn hiệu ứng */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
     pointer-events: none; /* Không cho phép tương tác khi ẩn */
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, top 0.3s ease-in-out; /* Đảm bảo transition cho 'top' */
+    /* Transition cho opacity, visibility và top để tạo hiệu ứng */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, top 0.3s ease-in-out;
     z-index: 1050; /* Đảm bảo modal nằm trên các nội dung khác */
 }
 
@@ -192,12 +194,14 @@ section {
     opacity: 1;
     visibility: visible;
     pointer-events: auto; /* Cho phép tương tác khi hiển thị */
-    top: var(--header-height); /* Trượt lên vị trí cuối cùng dưới header */
+    /* top: calc(var(--header-height) - 10px); */ /* Có thể thêm hiệu ứng trượt nhẹ lên nếu muốn */
+    top: var(--header-height); /* Giữ nguyên vị trí khi hiển thị để khớp ảnh 2 */
 }
 
 /* Điều chỉnh kích thước và vị trí của dialog bên trong modal */
 #modelId .modal-dialog {
-    max-width: 550px; /* Chiều rộng tối đa của khung tìm kiếm (theo ảnh mẫu) */
+    /* Đã giảm max-width để modal nhỏ gọn hơn theo hình ảnh thứ 2 */
+    max-width: 480px; /* Chiều rộng tối đa của khung tìm kiếm, điều chỉnh theo ảnh 2 */
     width: 90%; /* Chiếm 90% chiều rộng có sẵn (cho responsive) */
     margin: 0 auto; /* QUAN TRỌNG: Căn giữa khung tìm kiếm trong modal */
     transform: none !important; /* Ghi đè transform mặc định của Bootstrap nếu có */
@@ -206,11 +210,11 @@ section {
 
 /* Tạo kiểu cho khung nội dung của modal */
 #modelId .modal-content.modal-sch-main {
-    border: none; /* Bỏ viền mặc định */
-    border-radius: 10px; /* Bo tròn góc */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Đổ bóng */
-    background-color: var(--white-color); /* Nền trắng */
-    padding: 10px 15px; /* Padding bên trong khung */
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    background-color: var(--white-color);
+    padding: 8px 12px; /* Đã điều chỉnh padding để khung nhỏ gọn hơn */
 }
 
 /* Định hình input group bên trong modal-body */
@@ -222,38 +226,38 @@ section {
 }
 
 #modelId .input-group {
-    flex-grow: 1; /* Cho phép input group mở rộng hết chiều rộng */
+    flex-grow: 1;
     border-radius: 5px;
     overflow: hidden;
 }
 
 /* Input tìm kiếm */
 #modelId .search-box.form-control {
-    height: 55px; /* <--- ĐÃ TĂNG CHIỀU CAO CỦA Ô TÌM KIẾM THEO ẢNH */
-    padding: 0 20px;
+    height: 45px; /* Đã giảm chiều cao để khớp kích thước nhỏ hơn */
+    padding: 0 15px; /* Điều chỉnh padding */
     border: 1px solid #ddd;
     border-right: none;
     border-radius: 5px 0 0 5px;
-    font-size: 1.5em; /* <--- ĐÃ TĂNG KÍCH THƯỚC CHỮ */
+    font-size: 1.4em; /* Đã điều chỉnh kích thước chữ */
     outline: none;
     box-shadow: none;
 }
 
 /* Tùy chỉnh placeholder text riêng biệt */
 #modelId .search-box.form-control::placeholder {
-    font-size: 1.4em; /* <--- ĐÃ TĂNG KÍCH THƯỚC CHỮ PLACEHOLDER */
+    font-size: 1.3em; /* Đã điều chỉnh kích thước chữ placeholder */
     color: #a0a0a0;
 }
 
 /* Nút tìm kiếm */
 #modelId .input-group-append .search-btn {
-    height: 55px; /* <--- KHỚP CHIỀU CAO VỚI INPUT */
-    width: 55px; /* <--- ĐÃ THAY ĐỔI: ĐỂ LÀM CHO NÚT VUÔNG (chiều rộng bằng chiều cao) */
-    background-color: var(--primary-color); /* Sử dụng biến màu chính của bạn */
+    height: 45px; /* KHỚP CHIỀU CAO VỚI INPUT */
+    width: 45px; /* ĐẢM BẢO NÚT VUÔNG */
+    background-color: var(--primary-color);
     color: var(--white-color);
     border: none;
     border-radius: 0 5px 5px 0;
-    font-size: 1.8em; /* <--- ĐÃ TĂNG KÍCH THƯỚC ICON KÍNH LÚP */
+    font-size: 1.6em; /* KÍNH LÚP VẪN RÕ RÀNG */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -280,17 +284,17 @@ section {
         width: 95%;
     }
     #modelId .search-box.form-control {
-        height: 45px; /* Điều chỉnh chiều cao trên di động */
-        font-size: 1.2em; /* Điều chỉnh kích thước chữ trên di động */
+        height: 40px; /* Điều chỉnh chiều cao trên di động */
+        font-size: 1.1em; /* Điều chỉnh kích thước chữ trên di động */
         padding: 0 15px;
     }
     #modelId .search-box.form-control::placeholder {
-        font-size: 1.1em; /* Điều chỉnh kích thước chữ placeholder trên di động */
+        font-size: 1em; /* Điều chỉnh kích thước chữ placeholder trên di động */
     }
     #modelId .input-group-append .search-btn {
-        height: 45px; /* Điều chỉnh chiều cao trên di động */
-        width: 45px; /* Nút vuông trên di động */
-        font-size: 1.5em; /* Điều chỉnh kích thước icon trên di động */
+        height: 40px; /* Điều chỉnh chiều cao trên di động */
+        width: 40px; /* Nút vuông trên di động */
+        font-size: 1.2em;
     }
     #modelId .modal-content.modal-sch-main {
         padding: 8px 10px;
@@ -594,7 +598,7 @@ a.menu-btn:hover {
     padding: 1rem 3rem;
 }
 
-a.btn:hover { /* Sửa đổi: Đã hợp nhất với quy tắc trên nếu đây là .btn chung */
+a.btn:hover {
     color: var(--primary-color);
     background-color: var(--white-color);
     border: none;
