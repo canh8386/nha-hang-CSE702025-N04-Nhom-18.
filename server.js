@@ -124,6 +124,36 @@ app.post('/api/reservations', async (req, res) => {
         res.status(500).json({ error: 'Lỗi máy chủ khi thực hiện đặt bàn' });
     }
 });
+// API Endpoint để xử lý tin nhắn liên hệ từ contact.html
+app.post('/api/contact', async (req, res) => {
+    // Lấy dữ liệu từ form liên hệ
+    // Các tên biến này PHẢI khớp với thuộc tính 'name' của input trong contact.html
+    const { name, mail, comment } = req.body; // 'name', 'mail', 'comment' là các trường trong form contact.html
+
+    // Kiểm tra dữ liệu đầu vào cơ bản
+    if (!name || !mail || !comment) {
+        return res.status(400).json({ error: 'Vui lòng điền đầy đủ thông tin bắt buộc (Tên, Email, Tin nhắn).' });
+    }
+
+    // Xác thực email cơ bản
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
+        return res.status(400).json({ error: 'Địa chỉ email không hợp lệ.' });
+    }
+
+    try {
+        // Câu lệnh SQL phải khớp chính xác với tên các cột trong bảng `contact_messages`
+        // Bảng contact_messages có các cột: id, sender_name, sender_email, subject, message, sent_at, is_read
+        // Ở đây chúng ta sẽ bỏ qua 'subject' hoặc có thể đặt mặc định nếu không có trong form.
+        // Giả sử 'subject' sẽ là một chuỗi rỗng hoặc giá trị mặc định.
+        const sql = "INSERT INTO contact_messages (sender_name, sender_email, subject, message) VALUES (?, ?, ?, ?)";
+        const [result] = await pool.query(sql, [name, mail, "Contact Form Message", comment]); // "Contact Form Message" là subject mặc định
+        
+        res.json({ success: true, message: 'Tin nhắn của bạn đã được gửi thành công!', messageId: result.insertId });
+    } catch (error) {
+        console.error('Lỗi khi lưu tin nhắn liên hệ:', error);
+        res.status(500).json({ error: 'Lỗi máy chủ khi gửi tin nhắn liên hệ.' });
+    }
+});
 
 
 // Khởi động server
