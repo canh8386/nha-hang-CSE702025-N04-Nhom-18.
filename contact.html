@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -237,6 +237,7 @@
         messageDiv.className = 'message'; // Reset class
 
         try {
+            // Đảm bảo URL này khớp với endpoint bạn định nghĩa trong server.js
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: {
