@@ -1,27 +1,21 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vn">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đặt bàn </title>
     <link rel="shortcut icon" href="./assets/ico/web.ico" type="image/x-icon">
-    <!--CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="./assets/css/style-table.css">
-    <!--JS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!--Font-->
     <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!--Header-->
     <header>
-        <!--Navbar-->
         <nav id="nav" class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container">
                 <a href="index.html" class="logo">
@@ -56,7 +50,6 @@
             </div>
         </nav>
 
-        <!-- Modal -->
         <div class="modal-search">
             <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                 <div class="modal-dialog" role="document" >
@@ -76,13 +69,10 @@
             </div>
         </div>
 
-        <!--Back to home-->
         <button onclick="topFunction()" id="myBtn" title="Lên đầu trang"><i class="fas fa-arrow-up"></i></button>
     </header>
 
-    <!--Main-->
     <main>
-        <!--Banner-->
         <div class="page-banner">
             <div class="container">
                 <h1>Đặt bàn</h1>
@@ -108,61 +98,63 @@
                             <h1>Đặt Bàn</h1>
                             <p>Đến với nhà hàng, khách hàng sẽ thấy được không gian thoáng đãng, có những phòng riêng biệt cho hội họp hay sinh nhật với màu sắc tươi sáng.</p>
                         </div>
-                        <form action="">
-                            <div class="row">
+                        <form id="reservation-form"> <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="menu-item">
-                                      <label for="name">Họ tên:</label>
-                                      <br>
-                                      <input name="name" id="name" type="text" placeholder="Nhập tên của bạn" class="form-input" required>
-                                    </div>
+                                      <label for="customer_name">Họ tên:</label> <br>
+                                      <input name="customer_name" id="customer_name" type="text" placeholder="Nhập tên của bạn" class="form-input" required> </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="menu-item">
-                                      <label for="date">Ngày:</label>
-                                      <br>
-                                      <input name="date" id="date" type="text" placeholder="11/01/2021" class="form-input" required>
+                                      <label for="customer_phone">Số điện thoại:</label> <br>
+                                      <input name="customer_phone" id="customer_phone" type="tel" placeholder="Số điện thoại của bạn" class="form-input" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="menu-item">
-                                      <label for="time">Giờ:</label>
-                                      <br>
-                                      <input name="time" id="time" type="text" placeholder="12:00" class="form-input" required>
+                                      <label for="customer_email">Email:</label> <br>
+                                      <input name="customer_email" id="customer_email" type="email" placeholder="Email của bạn" class="form-input" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="menu-item">
-                                      <label for="guest">Bàn:</label>
-                                      <br>
-                                      <input name="guest" id="guest" type="text" placeholder="2" class="form-input" required>
-                                    </div>
+                                      <label for="number_of_guests">Số khách:</label> <br>
+                                      <input name="number_of_guests" id="number_of_guests" type="number" min="1" placeholder="2" class="form-input" required> </div>
                                 </div>
                             </div>
-                        </form>
-                         <div class="row">
-                             <div class="col-lg-12">
-                                <label for="comment">Lời nhắn:</label>
-                                <br>
-                                <textarea name="comment" id="comment" placeholder="Gửi lời nhắn cho chúng tôi" class="form-text"></textarea>
-                            </div>
-                        </div>
-                        <div class="reservation-banner">
-                            <div class="container">
-                                <div class="reservation-content">
-                                    <input type="button" id="btn" value="Đặt Bàn">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="menu-item">
+                                      <label for="reservation_date">Ngày:</label> <br>
+                                      <input name="reservation_date" id="reservation_date" type="date" class="form-input" required> </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="menu-item">
+                                      <label for="reservation_time">Giờ:</label> <br>
+                                      <input name="reservation_time" id="reservation_time" type="time" class="form-input" required> </div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="row">
+                                 <div class="col-lg-12">
+                                    <label for="notes">Lời nhắn:</label> <br>
+                                    <textarea name="notes" id="notes" placeholder="Gửi lời nhắn cho chúng tôi" class="form-text"></textarea>
+                                </div>
+                            </div>
+                            <div class="reservation-banner">
+                                <div class="container">
+                                    <div class="reservation-content">
+                                        <button type="submit" id="submit-reservation-btn">Đặt Bàn</button> </div>
+                                </div>
+                            </div>
+                            <div id="reservation-message" style="margin-top: 15px; text-align: center; font-weight: bold;"></div> </form>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!--Footer-->
     <footer>
         <div class="container">
             <div id="up-footer">
@@ -181,8 +173,6 @@
                                     <a href="https://youtu.be/dQw4w9WgXcQ" title="YouTube"><i><i class="fab fa-youtube"></i></i></a>
                                 </div>
                             </div>
-                            
-                            
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
@@ -201,22 +191,20 @@
                             <p>Chủ nhật: Từ 7:00 đến 23:30</p>
                         </div>
                     </div>
-                    
                 </div>
             </div>
             <div id="down-footer">
-                <p>Copyright &copy; 2025 <a href="" data-toggle="modal" data-target="#modelId2">Nhóm 18.</a></p>
+                <p>Copyright © 2025 <a href="" data-toggle="modal" data-target="#modelId2">Nhóm 18.</a></p>
             </div>
         </div>
-        
-        <!-- Modal -->
+
         <div class="modal fade" id="modelId2" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                         <div class="modal-header">
                                 <h5 class="modal-title">Thành viên</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
+                                        <span aria-hidden="true">×</span>
                                     </button>
                             </div>
                     <div class="modal-body">
@@ -232,44 +220,51 @@
         </div>
     </footer>
     <script src="js/script.js"></script>
-<!--     <script src="js/tb.js"></script> -->
 </body>
 <script>
-    const contactForm = document.getElementById('contact-form');
-    const messageDiv = document.getElementById('msg'); // Div để hiển thị thông báo
+    document.addEventListener('DOMContentLoaded', () => {
+        const reservationForm = document.getElementById('reservation-form'); // Lấy form theo id="reservation-form"
+        const reservationMessageDiv = document.getElementById('reservation-message'); // Lấy div hiển thị thông báo
 
-    contactForm.addEventListener('submit', async function(event) {
-        event.preventDefault(); // Ngăn form submit theo cách truyền thống
+        if (reservationForm) { // Đảm bảo form tồn tại trước khi thêm event listener
+            reservationForm.addEventListener('submit', async function(event) {
+                event.preventDefault(); // Ngăn form submit theo cách truyền thống của HTML
 
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData.entries()); // Chuyển FormData thành object
+                const formData = new FormData(reservationForm);
+                // Chuyển FormData thành một đối tượng JavaScript đơn giản
+                const data = Object.fromEntries(formData.entries());
 
-        messageDiv.textContent = 'Đang gửi...';
-        messageDiv.className = 'message'; // Reset class
+                // Hiển thị thông báo đang gửi
+                reservationMessageDiv.textContent = 'Đang gửi yêu cầu đặt bàn...';
+                reservationMessageDiv.className = 'message'; // Reset class (nếu bạn có CSS cho class 'message')
 
-        try {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
+                try {
+                    // Gửi yêu cầu POST đến API đặt bàn đã định nghĩa trong server.js
+                    const response = await fetch('/api/reservations', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json' // Báo cho server biết dữ liệu là JSON
+                        },
+                        body: JSON.stringify(data) // Chuyển đối tượng data thành chuỗi JSON
+                    });
+
+                    const result = await response.json(); // Phân tích phản hồi JSON từ server
+
+                    if (response.ok && result.success) { // Kiểm tra trạng thái HTTP và thuộc tính 'success' từ server
+                        reservationMessageDiv.textContent = result.message; // Hiển thị thông báo thành công
+                        reservationMessageDiv.classList.add('success'); // Thêm class 'success' để áp dụng CSS
+                        reservationForm.reset(); // Xóa các trường trong form sau khi gửi thành công
+                    } else {
+                        // Hiển thị thông báo lỗi từ server hoặc lỗi mặc định
+                        reservationMessageDiv.textContent = result.error || 'Có lỗi xảy ra khi đặt bàn. Vui lòng thử lại.';
+                        reservationMessageDiv.classList.add('error'); // Thêm class 'error' để áp dụng CSS
+                    }
+                } catch (error) {
+                    console.error('Lỗi khi gửi form đặt bàn:', error); // Ghi lỗi ra console để debug
+                    reservationMessageDiv.textContent = 'Lỗi kết nối máy chủ. Vui lòng thử lại sau.';
+                    reservationMessageDiv.classList.add('error');
+                }
             });
-
-            const result = await response.json();
-
-            if (response.ok && result.success) {
-                messageDiv.textContent = result.message;
-                messageDiv.classList.add('success'); // Thêm class cho thành công (tự định nghĩa CSS)
-                contactForm.reset(); // Xóa các trường trong form
-            } else {
-                messageDiv.textContent = result.error || 'Có lỗi xảy ra. Vui lòng thử lại.';
-                messageDiv.classList.add('error'); // Thêm class cho lỗi
-            }
-        } catch (error) {
-            console.error('Lỗi khi gửi form liên hệ:', error);
-            messageDiv.textContent = 'Lỗi kết nối. Vui lòng thử lại sau.';
-            messageDiv.classList.add('error');
         }
     });
 </script>
