@@ -224,7 +224,7 @@ section {
 }
 
 .modal-search .modal-sch-main {
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .modal-search .search-btn {
@@ -241,7 +241,7 @@ section {
 }
 
 .modal-search .search-box {
-  padding: 23px;
+  padding: 10px;
 }
 
 /* Slider */
