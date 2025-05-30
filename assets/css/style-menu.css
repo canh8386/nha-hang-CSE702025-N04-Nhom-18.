@@ -617,3 +617,12 @@ footer p {
         font-size: 1.4rem; /* Kích thước chữ nhỏ hơn trên mobile */
     }
 }
+/* Tìm đoạn CSS này trong file style-menu.css của bạn */
+#menu .menu-list .img-menu img {
+  border: 1px solid #d7d7d7;
+  border-radius: 50%;
+  /* THÊM HOẶC CHỈNH SỬA 2 DÒNG DƯỚI ĐÂY */
+  width: 3cm; /* Hoặc 90px nếu muốn dùng pixel */
+  height: 3cm; /* Hoặc 90px nếu muốn dùng pixel */
+  object-fit: cover; /* Đảm bảo ảnh không bị méo */
+}
