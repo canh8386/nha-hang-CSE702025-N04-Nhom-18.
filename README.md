@@ -6,7 +6,7 @@ Trang web quản lí nhà hàng và là bài tập lớn để đánh giá quá 
 
 Trang web sử dụng Bootstrap, Slick và một số công cụ khác để xây dựng.
 
-Trang web: https://nha-hang.github.io/nha-hang-CSE702025-N04-Nhom-18./
+Trang web:http://localhost:3000
 
 Các mục lớn của trang web:
 
