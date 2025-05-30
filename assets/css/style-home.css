@@ -920,54 +920,109 @@ a.menu-btn:hover {
         padding: 0.5rem 4rem 0.5rem 0;
     }
 }
-/* CSS để căn giữa modal theo cả chiều dọc và ngang và tùy chỉnh chiều rộng */
-.modal-dialog {
+/* Trong style-home.css */
+
+/* Ẩn thanh tìm kiếm ban đầu và định vị */
+.custom-search-container {
+    position: fixed; /* Giữ nó ở trên cùng khi cuộn */
+    top: -100px; /* Ban đầu ẩn nó lên trên */
+    left: 0;
+    right: 0;
+    height: 70px; /* Chiều cao của thanh tìm kiếm */
+    background-color: #f7f7f7; /* Màu nền của thanh tìm kiếm */
     display: flex;
-    align-items: center; /* Căn giữa theo chiều dọc */
-    justify-content: center; /* Căn giữa theo chiều ngang */
-    min-height: calc(100vh - 60px); /* Giữ nguyên chiều cao để nội dung nằm giữa, 60px là margin mặc định */
-    margin: auto; /* Quan trọng để căn giữa nếu có các thuộc tính khác */
-    max-width: 700px; /* Tăng chiều rộng tối đa của modal, điều chỉnh theo ý muốn */
-    width: 90%; /* Chiếm 90% chiều rộng màn hình, để responsive tốt hơn */
-}
-
-/* Đảm bảo nội dung modal bên trong không bị lệch và có chiều rộng phù hợp */
-.modal-content.modal-sch-main {
-    width: 100%; /* Đảm bảo modal-content chiếm toàn bộ chiều rộng của modal-dialog */
-    border-radius: 10px; /* Làm bo tròn góc nếu muốn */
-    /* Các thuộc tính khác nếu bạn muốn tùy chỉnh thêm padding, background, box-shadow */
-    padding: 20px; /* Thêm padding bên trong modal */
-}
-
-/* Tùy chỉnh input và button tìm kiếm nếu cần */
-.modal-sch-main .input-group .form-control.search-box {
-    height: 50px; /* Tăng chiều cao của input */
-    font-size: 1.2em; /* Tăng kích thước chữ */
-    padding-left: 20px;
-    border-radius: 50px 0 0 50px; /* Bo tròn góc trái */
-}
-
-.modal-sch-main .input-group .input-group-append .search-btn {
-    height: 50px; /* Bằng chiều cao của input */
-    width: 60px; /* Chiều rộng của nút */
-    background-color: #28a745; /* Màu xanh lá cây, điều chỉnh nếu muốn */
-    color: white;
-    border: none;
-    border-radius: 0 50px 50px 0; /* Bo tròn góc phải */
-    font-size: 1.5em;
-    display: flex; /* Sử dụng flexbox để căn giữa icon */
     align-items: center;
     justify-content: center;
+    padding: 0 20px; /* Padding hai bên */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Đổ bóng nhẹ */
+    z-index: 1000; /* Đảm bảo nó nằm trên các nội dung khác */
+    transition: top 0.3s ease-in-out; /* Hiệu ứng trượt xuống */
 }
 
-/* Xử lý responsive cho màn hình nhỏ hơn */
+/* Khi thanh tìm kiếm hiện ra (thêm class 'active' bằng JS) */
+.custom-search-container.active {
+    top: 0; /* Hiện ra ngay dưới header nếu header có position: fixed; top:0 */
+    /* Hoặc có thể đặt top: 80px; nếu header của bạn có chiều cao 80px */
+}
+
+.custom-search-input {
+    flex-grow: 1; /* Cho phép input mở rộng */
+    height: 45px;
+    padding: 0 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.1em;
+    outline: none; /* Bỏ viền khi focus */
+}
+
+.custom-search-button {
+    height: 45px;
+    width: 60px;
+    background-color: #4CAF50; /* Màu xanh lá cây */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.custom-search-button:hover {
+    background-color: #45a049;
+}
+
+.custom-search-container #close-search {
+    font-size: 1.5em;
+    color: #555;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.custom-search-container #close-search:hover {
+    color: #333;
+}
+
+/* Thêm padding cho body khi thanh tìm kiếm hiện ra để nội dung không bị che */
+body.search-active {
+    padding-top: 70px; /* Chiều cao của .custom-search-container */
+}
+
+/* Responsive cho màn hình nhỏ hơn */
 @media (max-width: 768px) {
-    .modal-dialog {
-        max-width: 95%; /* Chiếm gần hết chiều rộng trên di động */
+    .custom-search-container {
+        height: 60px;
+        padding: 0 10px;
     }
-    .modal-sch-main .input-group .form-control.search-box,
-    .modal-sch-main .input-group .input-group-append .search-btn {
-        height: 45px; /* Giảm chiều cao trên di động */
+    .custom-search-input {
+        height: 40px;
+    }
+    .custom-search-button {
+        height: 40px;
+        width: 50px;
         font-size: 1em;
     }
+    .custom-search-container #close-search {
+        font-size: 1.2em;
+        margin-left: 10px;
+    }
+    body.search-active {
+        padding-top: 60px;
+    }
+}
+
+/* Đảm bảo header không bị che bởi thanh tìm kiếm khi thanh tìm kiếm hiện ra.
+   Nếu header của bạn đã có position: fixed và top: 0, thì không cần thay đổi.
+   Nếu không, bạn có thể cần điều chỉnh z-index của header hoặc top của thanh tìm kiếm. */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1020; /* Đảm bảo header nằm trên nội dung và dưới thanh tìm kiếm */
+    /* ... các style khác của header */
 }
