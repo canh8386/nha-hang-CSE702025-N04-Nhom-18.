@@ -895,7 +895,7 @@ a.menu-btn:hover {
         padding: 0.5rem 4rem 0.5rem 0;
     }
 }
-/* THÊM CÁC QUY TẮC CSS CHO MODAL TÌM KIẾM TỪ TRANG MENU VÀO ĐÂY */
+/* THAY THẾ TOÀN BỘ CÁC QUY TẮC CSS CHO MODAL TÌM KIẾM BẰNG ĐOẠN SAU */
 
 /* Ẩn lớp phủ nền mặc định của Bootstrap */
 .modal-backdrop {
@@ -906,10 +906,7 @@ a.menu-btn:hover {
 #modelId.modal {
     position: fixed; /* Giữ cố định trên màn hình */
     top: var(--header-height); /* Sử dụng biến header-height để định vị ngay dưới header */
-    left: 50%; /* Đặt modal ở giữa theo chiều ngang */
-    transform: translateX(-50%); /* Dịch sang trái 50% chiều rộng của modal để căn giữa hoàn hảo */
-    width: 100%; /* Sẽ được giới hạn bởi max-width của modal-dialog */
-    display: block !important; /* Buộc display: block để có thể transition opacity/visibility */
+    width: 100%; /* Đảm bảo modal chiếm toàn bộ chiều rộng viewport để modal-dialog có thể căn giữa */
     opacity: 0; /* Ẩn ban đầu */
     visibility: hidden; /* Ẩn ban đầu */
     pointer-events: none; /* Không cho phép tương tác khi ẩn */
@@ -922,16 +919,16 @@ a.menu-btn:hover {
     opacity: 1;
     visibility: visible;
     pointer-events: auto; /* Cho phép tương tác khi hiển thị */
-    top: var(--header-height); /* Giữ nguyên vị trí khi hiển thị để không bị trượt */
+    top: var(--header-height); /* Giữ nguyên vị trí khi hiển thị */
 }
 
 /* Điều chỉnh kích thước và vị trí của dialog bên trong modal */
 #modelId .modal-dialog {
-    max-width: 550px; /* Chiều rộng tối đa của khung tìm kiếm */
-    width: 90%; /* Chiếm 90% chiều rộng có sẵn */
-    margin: 0; /* Bỏ margin mặc định của Bootstrap */
-    transform: none !important; /* Ghi đè transform của Bootstrap để không làm lệch */
-    top: auto !important; /* Bỏ top mặc định của Bootstrap */
+    max-width: 550px; /* Chiều rộng tối đa của khung tìm kiếm (điều chỉnh theo ảnh) */
+    width: 90%; /* Chiếm 90% chiều rộng có sẵn (cho responsive) */
+    margin: 0 auto; /* <--- QUAN TRỌNG: Căn giữa khung tìm kiếm trong modal */
+    transform: none !important; /* Ghi đè transform mặc định của Bootstrap nếu có */
+    top: auto !important; /* Bỏ top mặc định của Bootstrap nếu có */
 }
 
 /* Tạo kiểu cho khung nội dung của modal */
