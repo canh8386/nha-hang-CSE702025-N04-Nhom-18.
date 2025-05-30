@@ -524,9 +524,9 @@ footer p
     border: 1px solid #f5c6cb;
 }
 #submit-reservation-btn { /* Style cho nút "Đặt Bàn" */
-    background-color: var(--white-color); /* Nền trắng */
-    color: var(--black-color); /* Chữ màu đen */
-    border: 1px solid var(--black-color); /* Viền đen mảnh */
+    background-color: #23ad10; /* Nền trắng */
+    color: var(--white-color); /* Chữ màu đen */
+    border: 1px solid var(--white-color); /* Viền đen mảnh */
     padding: 12px 30px; /* Padding để nút có kích thước hợp lý */
     font-size: 18px; /* Kích thước chữ */
     border-radius: 0; /* Loại bỏ bo góc, làm nút vuông vắn */
