@@ -895,20 +895,23 @@ a.menu-btn:hover {
         padding: 0.5rem 4rem 0.5rem 0;
     }
 }
-.modal-search .modal-sch-main {
+.modal-search .modal-sch-main
+{
     border-radius: 10px;
 }
 
-.modal-search .search-btn {
+.modal-search .search-btn
+{
     background-color: var(--primary-color);
     border-color: var(--primary-color);
 }
 
-.modal-search .search-btn i {
+.modal-search .search-btn i
+{
     color: var(--white-color);
 }
 
-.modal-search .search-btn:hover {
+.modal-search .search-btn:hover
+{
     opacity: 0.8;
 }
-
