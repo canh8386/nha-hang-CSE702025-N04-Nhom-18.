@@ -11,35 +11,35 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-    display: block;
+	display: block;
 }
 body {
-    line-height: 1;
+	line-height: 1;
 }
 ol, ul {
-    list-style: none;
+	list-style: none;
 }
 blockquote, q {
-    quotes: none;
+	quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-    content: '';
-    content: none;
+	content: '';
+	content: none;
 }
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 /*CSS All*/
@@ -61,9 +61,9 @@ body
 /*Navbar*/
 #nav
 {
-    padding: 5px;
-    background-color: var(--white-color);
-   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+	padding: 5px;
+	background-color: var(--white-color);
+	box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 #nav .logo
@@ -175,34 +175,11 @@ body
     opacity: 0.8;
 }
 
-/*Back to top*/
-#myBtn 
-{
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99;
-    font-size: 18px;
-    border: none;
-    outline: none;
-    background-color: var(--primary-color);
-    color: white;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 50%;
-}
-  
-#myBtn:hover 
-{
-    opacity: 0.8;
-}
-
 /*Main*/
 /*Banner*/
 .page-banner
 {
-    padding: 128px 0 75px;
+    padding: 150px 0 75px;
     background: url("../img/Banners/page-ban.jpg") center center no-repeat;
     background-size: cover;
 }
@@ -255,79 +232,80 @@ body
     padding: 0 2px;
 }
 
-#menu
+/*Main*/
+#about-content
 {
-    padding-top: 50px;
+    margin: 50px 0 80px 0;
 }
 
-.menu-list
+#about-content .img-1 img
 {
-    margin-bottom: 50px;
+    width: 100%;
+    border-radius: 10px;
 }
 
-.menu-title
-{
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.menu-title h1
-{
-    font-size: 50px;
-    color: var(--black-color);
-    font-weight: 600;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
-
-.menu-title p
+#about-content .ab-1 span
 {
     font-size: 18px;
     color: var(--text-color);
-}
-
-.menu-item
-{
-    padding: 10px 10px 0px 0px;
     margin-bottom: 20px;
 }
-.form-input{
-    margin-top: 10px;
-    width: 100%;
-    height: 50px;
-    padding-left: 10px;
-    border: 1px solid #e1e1e1;
-}
-.form-text{
-    margin-top: 10px;
-    width: 99.21%;
-    height: 100px;
-    padding-top: 10px;
-    padding-left: 10px;
-    border: 1px solid #e1e1e1;
+
+#about-content .ab-1 p
+{
+    font-size: 16px;
+    margin: 20px 0;
+    line-height: 1.6;
+    color: var(--text-color);
 }
 
-/*Banner Reservation*/
-.reservation-banner
+#about-content .header-2
 {
-    padding: 50px 10px;
     text-align: center;
-}
-.reservation-content input
-{
-    padding: 15px 35px;
-    color: var(--white-color);
-    font: 18px;
-    font-weight: 600;
-    text-decoration: none;
-    background-color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    margin-top: 50px;
+    margin-bottom: 15px;
 }
 
-.reservation-content input:hover
+#about-content h5
 {
-    color: var(--primary-color);
-    background-color: var(--white-color);
+    text-align: center;
+    margin-top: 20px;
+}
+
+#about-content .about-cheft
+{
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-top: 15px;
+    text-align: justify;
+}
+
+#about-content .cheft img
+{
+    width: 100%;
+    border-radius: 10px;
+}
+
+#about-content .p-2
+{
+    text-align: center;
+    font-size: 22px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+#about-content .about-cm
+{
+    padding-top: 15px;
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+#about-content .cm .cm-img
+{
+    text-align: center;
 }
 
 /*Footer*/
@@ -429,4 +407,161 @@ footer p
 {
     text-decoration: none;
     opacity: 0.8;
+}
+/* style-table.css */
+
+/* Phần đặt bàn chung */
+.menu-box {
+    padding: 30px;
+    background-color: var(--white-color); /* Giả định bạn muốn nền trắng */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px; /* Khoảng cách với phần trên */
+    margin-bottom: 50px; /* Khoảng cách với phần dưới */
+}
+
+.menu-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.menu-title h1 {
+    font-size: 36px;
+    color: var(--black-color);
+    margin-bottom: 10px;
+}
+
+.menu-title p {
+    font-size: 18px;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Các trường nhập liệu trong form */
+.menu-item {
+    margin-bottom: 20px; /* Khoảng cách giữa các nhóm input */
+}
+
+.menu-item label {
+    display: block;
+    font-size: 16px;
+    color: var(--black-color);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-input,
+.form-text {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--black-color);
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng tổng thể */
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-text:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(35, 173, 16, 0.25); /* Hiệu ứng focus tương tự bootstrap */
+}
+
+.form-text {
+    resize: vertical; /* Cho phép người dùng thay đổi chiều cao của textarea */
+    min-height: 100px; /* Chiều cao tối thiểu cho textarea */
+}
+
+/* Phần banner và nút đặt bàn */
+.reservation-banner {
+    margin-top: 30px;
+    text-align: center; /* Để căn giữa nút đặt bàn */
+}
+
+.reservation-content {
+    /* Có thể thêm padding hoặc định dạng nền cho phần này nếu cần */
+    padding: 10px 0;
+}
+
+#submit-reservation-btn { /* Style cho nút "Đặt Bàn" */
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    padding: 12px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase; /* Chữ hoa cho nút */
+    letter-spacing: 1px; /* Khoảng cách giữa các chữ cái */
+}
+
+#submit-reservation-btn:hover {
+    background-color: #1e9a0e; /* Màu đậm hơn khi hover */
+    opacity: 0.9;
+}
+
+/* Các kiểu cho thông báo thành công/thất bại */
+#reservation-message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#reservation-message.success {
+    background-color: #d4edda; /* Nền xanh nhạt */
+    color: #155724; /* Chữ xanh đậm */
+    border: 1px solid #c3e6cb;
+}
+
+#reservation-message.error {
+    background-color: #f8d7da; /* Nền đỏ nhạt */
+    color: #721c24; /* Chữ đỏ đậm */
+    border: 1px solid #f5c6cb;
+}
+#submit-reservation-btn { /* Style cho nút "Đặt Bàn" */
+    background-color: var(--white-color); /* Nền trắng */
+    color: var(--black-color); /* Chữ màu đen */
+    border: 1px solid var(--black-color); /* Viền đen mảnh */
+    padding: 12px 30px; /* Padding để nút có kích thước hợp lý */
+    font-size: 18px; /* Kích thước chữ */
+    border-radius: 0; /* Loại bỏ bo góc, làm nút vuông vắn */
+    cursor: pointer; /* Biểu tượng con trỏ khi di chuột qua */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Hiệu ứng chuyển động mượt mà khi hover */
+    font-weight: normal; /* Chữ bình thường (không đậm) */
+    text-transform: none; /* Giữ nguyên chữ thường (không chữ hoa) */
+    letter-spacing: normal; /* Loại bỏ khoảng cách chữ cái */
+    display: inline-block;
+    box-shadow: none; /* Loại bỏ đổ bóng */
+}
+
+#submit-reservation-btn:hover {
+    background-color: #f0f0f0; /* Thay đổi nền một chút khi hover để tạo hiệu ứng */
+    color: var(--black-color);
+    border-color: var(--black-color);
+    opacity: 0.9; /* Giảm opacity một chút khi hover */
+}
+
+/* Các kiểu cho thông báo thành công/thất bại (đảm bảo vẫn giữ lại) */
+#reservation-message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#reservation-message.success {
+    background-color: #d4edda; /* Nền xanh nhạt */
+    color: #155724; /* Chữ xanh đậm */
+    border: 1px solid #c3e6cb;
+}
+
+#reservation-message.error {
+    background-color: #f8d7da; /* Nền đỏ nhạt */
+    color: #721c24; /* Chữ đỏ đậm */
+    border: 1px solid #f5c6cb;
 }
