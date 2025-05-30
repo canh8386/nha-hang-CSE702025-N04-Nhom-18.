@@ -72,31 +72,37 @@ app.get('/api/menu-items', async (req, res) => {
     }
 });
 
-// API Endpoint để xử lý việc gửi form liên hệ (bảng contact_messages)
-app.post('/api/contact', async (req, res) => {
-    // Dữ liệu từ form sẽ nằm trong req.body
-    // Các tên trường (name, mail, comment) phải khớp với thuộc tính 'name' của input trong contact.html
-    const { name, mail, comment } = req.body;
+app.post('/api/reservations', async (req, res) => {
+    // Lấy dữ liệu từ form trong table.html
+    // Các tên biến này PHẢI khớp với thuộc tính 'name' của input trong table.html
+    const { customer_name, customer_phone, customer_email, reservation_date, reservation_time, number_of_guests, notes } = req.body;
 
-    // **QUAN TRỌNG: Luôn xác thực và làm sạch dữ liệu đầu vào!**
-    if (!name || !mail || !comment) {
-        return res.status(400).json({ error: 'Vui lòng điền đầy đủ thông tin.' });
+    if (!customer_name || !customer_phone || !customer_email || !reservation_date || !reservation_time || !number_of_guests) {
+        return res.status(400).json({ error: 'Vui lòng điền đầy đủ thông tin bắt buộc (Tên, Điện thoại, Email, Ngày, Giờ, Số khách).' });
     }
-    // Kiểm tra email đơn giản
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
-         return res.status(400).json({ error: 'Địa chỉ email không hợp lệ.' });
+
+    // Xác thực email cơ bản
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer_email)) {
+        return res.status(400).json({ error: 'Địa chỉ email không hợp lệ.' });
+    }
+    // Xác thực số khách phải là số nguyên dương
+    const guests = parseInt(number_of_guests);
+    if (isNaN(guests) || guests <= 0) {
+        return res.status(400).json({ error: 'Số khách không hợp lệ. Vui lòng nhập số nguyên dương.' });
     }
 
     try {
-        // Giả sử bảng contact_messages có các cột: name, email, message
-        const sql = "INSERT INTO contact_messages (name, email, message) VALUES (?, ?, ?)";
-        const [result] = await pool.query(sql, [name, mail, comment]);
-        res.json({ success: true, message: 'Tin nhắn của bạn đã được gửi thành công!', insertedId: result.insertId });
+        // Câu lệnh SQL phải khớp chính xác với tên các cột trong bảng `reservations`
+        const sql = "INSERT INTO reservations (customer_name, customer_phone, customer_email, number_of_guests, reservation_date, reservation_time, notes) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        // Đảm bảo thứ tự các giá trị trong mảng này khớp với thứ tự các cột trong câu lệnh SQL
+        const [result] = await pool.query(sql, [customer_name, customer_phone, customer_email, guests, reservation_date, reservation_time, notes || null]);
+        res.json({ success: true, message: 'Đặt bàn của bạn đã được ghi nhận!', reservationId: result.insertId });
     } catch (error) {
-        console.error('Lỗi khi lưu tin nhắn liên hệ:', error);
-        res.status(500).json({ error: 'Lỗi máy chủ khi gửi tin nhắn' });
+        console.error('Lỗi khi lưu đặt bàn:', error);
+        res.status(500).json({ error: 'Lỗi máy chủ khi thực hiện đặt bàn' });
     }
 });
+
 
 // API Endpoint để xử lý đặt bàn (bảng reservations)
 app.post('/api/reservations', async (req, res) => {
