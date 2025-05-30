@@ -541,8 +541,8 @@ footer p
 
 #submit-reservation-btn:hover {
     background-color: #f0f0f0; /* Thay đổi nền một chút khi hover để tạo hiệu ứng */
-    color: var(--black-color);
-    border-color: var(--black-color);
+    color: #23ad10;
+    border-color: #23ad10;
     opacity: 0.9; /* Giảm opacity một chút khi hover */
 }
 
