@@ -242,6 +242,7 @@ section {
 
 .modal-search .search-box {
   padding: 23px;
+  font-size: 1.5rem;
 }
 
 /* Slider */
@@ -984,4 +985,119 @@ a.menu-btn:hover {
   .end-footer .footer-copyright {
     padding: 0.5rem 4rem 0.5rem 0;
   }
+}
+/* CSS cho phần gợi ý tìm kiếm trong modal */
+#modelId .modal-body { /* Đảm bảo modal-body là relative cho position absolute bên trong */
+    position: relative;
+    padding-bottom: 0; /* Có thể điều chỉnh để gợi ý không bị đệm quá nhiều */
+}
+
+#search-suggestions {
+    position: absolute; /* Quan trọng để gợi ý nằm trên nội dung khác */
+    z-index: 1051; /* Cao hơn modal backdrop (thường 1040) và modal (thường 1050) */
+    width: calc(100% - 30px); /* Đảm bảo chiều rộng khớp với input, trừ đi padding 15px mỗi bên của modal-body */
+    max-height: 250px; /* Giới hạn chiều cao và cho phép cuộn */
+    overflow-y: auto;
+    background-color: var(--white-color); /* Sử dụng biến màu trắng của bạn */
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    box-shadow: var(--box-shadow); /* Sử dụng biến shadow của bạn */
+    left: 15px; /* Căn chỉnh với padding của modal-body */
+    right: 15px; /* Căn chỉnh với padding của modal-body */
+    top: 55px; /* Đặt dưới thanh tìm kiếm (chiều cao input 45px + khoảng cách 10px) */
+}
+
+#search-suggestions .list-group-item {
+    padding: 10px 15px;
+    font-size: 1.6rem; /* Kích thước chữ cho gợi ý, điều chỉnh theo ý muốn */
+    border: none; /* Bỏ border mặc định của list-group-item */
+    border-bottom: 1px solid #eee; /* Chỉ có border dưới */
+    cursor: pointer;
+    color: var(--black-color); /* Màu chữ mặc định cho gợi ý */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#search-suggestions .list-group-item:last-child {
+    border-bottom: none;
+}
+
+#search-suggestions .list-group-item:hover {
+    background-color: var(--primary-color); /* Màu nền khi hover */
+    color: var(--white-color); /* Màu chữ khi hover */
+}
+
+/* responsive cho mobile (nếu cần) */
+@media (max-width: 768px) {
+    #search-suggestions {
+        left: 10px; /* Điều chỉnh lại theo padding của modal-body trên mobile */
+        right: 10px; /* Điều chỉnh lại theo padding của modal-body trên mobile */
+        width: calc(100% - 20px); /* 100% trừ padding 10px mỗi bên */
+        top: 50px; /* Điều chỉnh vị trí trên mobile nếu input có chiều cao khác */
+    }
+    #search-suggestions .list-group-item {
+        font-size: 1.4rem; /* Kích thước chữ nhỏ hơn trên mobile */
+    }
+}
+/* CSS cho phần gợi ý tìm kiếm trong modal */
+#modelId .modal-body { /* Đảm bảo modal-body là relative cho position absolute bên trong */
+    position: relative;
+    padding-bottom: 0; /* Có thể điều chỉnh để gợi ý không bị đệm quá nhiều */
+}
+
+#search-suggestions {
+    position: absolute; /* Quan trọng để gợi ý nằm trên nội dung khác */
+    z-index: 1051; /* Cao hơn modal backdrop (thường 1040) và modal (thường 1050) */
+    width: calc(100% - 30px); /* Đảm bảo chiều rộng khớp với input, trừ đi padding 15px mỗi bên của modal-body */
+    max-height: 250px; /* Giới hạn chiều cao và cho phép cuộn */
+    overflow-y: auto;
+    background-color: var(--white-color); /* Sử dụng biến màu trắng của bạn */
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sử dụng box-shadow mặc định hoặc định nghĩa trong --box-shadow nếu có */
+    left: 15px; /* Căn chỉnh với padding của modal-body */
+    right: 15px; /* Căn chỉnh với padding của modal-body */
+    top: 55px; /* Đặt dưới thanh tìm kiếm (chiều cao input 45px + khoảng cách 10px) */
+}
+
+#search-suggestions .list-group-item {
+    padding: 10px 15px;
+    font-size: 1.6rem; /* Kích thước chữ cho gợi ý, điều chỉnh theo ý muốn */
+    border: none; /* Bỏ border mặc định của list-group-item */
+    border-bottom: 1px solid #eee; /* Chỉ có border dưới */
+    cursor: pointer;
+    color: var(--black-color); /* Màu chữ mặc định cho gợi ý */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#search-suggestions .list-group-item:last-child {
+    border-bottom: none;
+}
+
+#search-suggestions .list-group-item:hover {
+    background-color: var(--primary-color); /* Màu nền khi hover */
+    color: var(--white-color); /* Màu chữ khi hover */
+}
+
+/* CSS cho highlight món ăn khi cuộn tới trên menu.html */
+.highlight-food-item {
+    background-color: #fffacd !important; /* Màu vàng nhạt để highlight */
+    border: 2px solid var(--primary-color) !important;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.7); /* Thêm đổ bóng nổi bật */
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* responsive cho mobile (nếu cần) */
+@media (max-width: 768px) {
+    #search-suggestions {
+        left: 10px; /* Điều chỉnh lại theo padding của modal-body trên mobile */
+        right: 10px; /* Điều chỉnh lại theo padding của modal-body trên mobile */
+        width: calc(100% - 20px); /* 100% trừ padding 10px mỗi bên */
+        top: 50px; /* Điều chỉnh vị trí trên mobile nếu input có chiều cao khác */
+    }
+    #search-suggestions .list-group-item {
+        font-size: 1.4rem; /* Kích thước chữ nhỏ hơn trên mobile */
+    }
 }
