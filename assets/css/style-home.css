@@ -895,6 +895,26 @@ a.menu-btn:hover {
         padding: 0.5rem 4rem 0.5rem 0;
     }
 }
+.modal-search .modal-sch-main {
+    border-radius: 10px;
+}
+
+.modal-search .search-btn {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.modal-search .search-btn i {
+    color: var(--white-color);
+}
+
+.modal-search .search-btn:hover {
+    opacity: 0.8;
+}
+
+.modal-search .search-box {
+    padding: 23px;
+}
 /* THAY THẾ TOÀN BỘ CÁC QUY TẮC CSS CHO MODAL TÌM KIẾM BẰNG ĐOẠN SAU */
 
 /* Ẩn lớp phủ nền mặc định của Bootstrap */
