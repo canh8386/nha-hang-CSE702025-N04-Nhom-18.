@@ -42,7 +42,7 @@ Nguồn lấy Template: https://themeforest.net/item/koad-restaurant-bistro-html
 ## Thành viên
 Nhóm 18 - CNTT3 - K17:
 
-  * 201200304
+  * Đỗ Phương Nam:23010288
   * 201200332
   * 201200370
   * 201200364
