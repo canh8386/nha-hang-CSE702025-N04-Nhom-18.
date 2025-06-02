@@ -18,7 +18,8 @@ Các mục lớn của trang web:
 
 ## Một số hình ảnh
   * Trang chủ
-  ![image](https://user-images.githubusercontent.com/85392867/163226724-0d267da1-2fdc-4c79-b952-1dd82c94131f.png)
+  ![image](https://github.com/user-attachments/assets/da487175-4341-411c-9cac-ed63dc1791a2)
+
   
   * Thực đơn
   ![image](https://user-images.githubusercontent.com/85392867/163226621-5191a13f-37e5-498f-963b-44588415a81f.png)
