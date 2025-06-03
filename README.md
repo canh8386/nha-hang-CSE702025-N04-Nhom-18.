@@ -48,9 +48,6 @@ Nguồn lấy Template: https://themeforest.net/item/koad-restaurant-bistro-html
 Nhóm 18 - CNTT3 - K17:
 
   * Đỗ Phương Nam:23010288
-  * 201200332
-  * 201200370
-  * 201200364
-  * 201200113
+  
 
 #### 2025. Trường Đại học Phenikaa
